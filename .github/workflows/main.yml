@@ -1,0 +1,19 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build and Push Docker image
+      run: |
+        docker build -t simple-nodejs-app-master:${{ github.sha }} .
+        docker push simple-nodejs-app-master:${{ github.sha }}
