@@ -18,6 +18,5 @@ jobs:
 
     - name: Build and Push Docker image
       run: |
-        using: 'node16'
         docker build -t Venkatehrn/simple-nodejs-app-master:${{ github.sha }} .
         docker push Venkatehrn/simple-nodejs-app-master:${{ github.sha }}
