@@ -1,0 +1,22 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and Push Docker image
+      run: |
+        docker build -t Venkatehrn/simple-nodejs-app-master:${{ github.sha }} .
+        docker push your-Venkatehrn/simple-nodejs-app-master:${{ github.sha }}
