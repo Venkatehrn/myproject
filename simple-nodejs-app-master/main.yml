@@ -15,5 +15,5 @@ jobs:
 
     - name: Build and Push Docker image
       run: |
-        docker build -t simple-nodejs-app-master:${{ github.sha }} .
-        docker push simple-nodejs-app-master:${{ github.sha }}
+        docker build -t Dockerfile:${{ github.sha }} .
+        docker push Dockerfile:${{ github.sha }}
