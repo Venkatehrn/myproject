@@ -1,4 +1,3 @@
-
 name: Build and Push Docker Image
 
 on:
@@ -18,7 +17,7 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and Push Docker image
-      run: 
+      run: |
         using: 'node16'
         docker build -t Venkatehrn/simple-nodejs-app-master:${{ github.sha }} .
-        docker push your-Venkatehrn/simple-nodejs-app-master:${{ github.sha }}
+        docker push Venkatehrn/simple-nodejs-app-master:${{ github.sha }}
